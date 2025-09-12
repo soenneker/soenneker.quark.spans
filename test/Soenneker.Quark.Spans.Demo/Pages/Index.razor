@@ -1,0 +1,45 @@
+﻿@page "/"
+@using Microsoft.Extensions.Logging
+@using Soenneker.Quark.Spans
+
+@inject ILogger<Index> Logger
+
+<img src="https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png" />
+<h1>Soenneker.Quark.Spans demo</h1>
+<p>This page demonstrates some of the common usages for the Span component.</p>
+<br />
+
+<hr />
+
+<h2>Basic Span Usage</h2>
+<Span Class="text-primary">This is a basic span with a CSS class</Span>
+
+<br /><br />
+
+<h2>Span with Styling</h2>
+<Span Style="color: red; font-weight: bold;">This span has inline styling</Span>
+
+<br /><br />
+
+<h2>Span with Click Handler</h2>
+<Span @onclick="HandleSpanClick" Class="btn btn-primary" Style="cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; border-radius: 3px;">
+    Click me!
+</Span>
+
+<br /><br />
+
+<h2>Span with Child Content</h2>
+<Span Class="highlight">
+    <strong>Bold text</strong> and <em>italic text</em> inside a span
+</Span>
+
+@code{
+    private void HandleSpanClick()
+    {
+        Logger.LogInformation("Span was clicked!");
+    }
+
+    protected override void OnInitialized()
+    {
+    }
+}
